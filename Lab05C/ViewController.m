@@ -33,16 +33,8 @@
     
     _textTimestamp.text = [self getDate];
     
-    NSArray *results = [self loadCoreData];
-    if(results.count > 0){
-        for(Pokemon *pokemon in results){
-            NSLog(@"%lu pokemons you have right now!", (unsigned long)results.count);
-            NSLog(@"Pokemon Name = %@", pokemon.pokename);
-            NSLog(@"Location = %@", pokemon.location);
-            NSLog(@"Time Stamp = %@", pokemon.timestamp);
-            NSLog(@"Comments = %@", pokemon.comment);
-        }
-    }
+    _currentCount=0;
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -76,6 +68,7 @@
     if(![context save:&error]){
         NSLog(@"Save Failed! %@", [error localizedDescription]);
     }else{
+        
         NSLog(@"Pokemon %@ Saved!", pokename);
     }
 }
@@ -112,6 +105,81 @@
     }
 }
 
+- (IBAction)leftSwitch:(id)sender {
+    
+    int count = [self searchData];
+    
+    if( count > 0){
+        
+        if(_currentCount == 0){
+            
+            [self showData:0];
+        }
+        else if (_currentCount > 0){
+            
+            _currentCount = _currentCount - 1;
+            
+            [self showData:_currentCount];
+        }
+        [self showCount:_currentCount TotalCount:count];
+    }
+}
+
+-(void)showCount:(int)current TotalCount:(int)total{
+    
+    NSString *labCount;
+    
+    labCount = [NSString stringWithFormat:@"%i/%i", current, total];
+    
+    _labCount.text = labCount;
+}
+
+- (IBAction)rightSwitch:(id)sender {
+    
+    int count = [self searchData];
+    
+    if( count >0 ){
+        
+        if(_currentCount == count){
+            
+            [self showData:count-1];
+        }
+        else if(_currentCount < count){
+            
+            [self showData:_currentCount];
+            
+            _currentCount = _currentCount + 1;
+        }
+    }
+    
+    [self showCount:_currentCount TotalCount:count];
+}
+
+-(int)searchData{
+    
+    _arrayResult = [self loadCoreData];
+    
+    if(_arrayResult.count > 0){
+        for(Pokemon *pokemon in _arrayResult){
+            NSLog(@"%lu pokemons you have right now!", (unsigned long)_arrayResult.count);
+            NSLog(@"Pokemon Name = %@", pokemon.pokename);
+            NSLog(@"Location = %@", pokemon.location);
+            NSLog(@"Time Stamp = %@", pokemon.timestamp);
+            NSLog(@"Comments = %@", pokemon.comment);
+        }
+    }
+    
+    return (int)_arrayResult.count;
+}
+
+-(void)showData:(int)index{
+    
+    Pokemon *pokemon = [_arrayResult objectAtIndex:index];
+    _textPokename.text = pokemon.pokename;
+    _textLocation.text = pokemon.location;
+    //_textTimestamp.text = pokemon.timestamp;
+    _textComment.text = pokemon.comment;
+}
 
 - (NSManagedObjectContext *)managedObjectContext{
     if (_managedObjectContext != nil) {

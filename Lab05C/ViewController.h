@@ -36,4 +36,10 @@
 
 @property (weak, nonatomic) IBOutlet UITextView *textComment;
 
+@property NSArray *arrayResult;
+
+@property int currentCount;
+
+@property (weak, nonatomic) IBOutlet UILabel *labCount;
+
 @end
