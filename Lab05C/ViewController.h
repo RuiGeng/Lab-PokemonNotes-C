@@ -28,7 +28,12 @@
 // nice to have to reference files for core data
 - (NSURL *)applicationDocumentsDirectory;
 
-@property (weak, nonatomic) IBOutlet UITextField *m_text;
+@property (weak, nonatomic) IBOutlet UITextField *textPokename;
 
+@property (weak, nonatomic) IBOutlet UITextField *textLocation;
+
+@property (weak, nonatomic) IBOutlet UITextField *textTimestamp;
+
+@property (weak, nonatomic) IBOutlet UITextView *textComment;
 
 @end

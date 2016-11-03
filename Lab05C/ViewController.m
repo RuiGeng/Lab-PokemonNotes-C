@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "Entity+CoreDataClass.h"
+#import "Pokemon+CoreDataClass.h"
 
 
 @interface ViewController ()
@@ -29,16 +29,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    [self setUITextViewStyle];
+    
+    _textTimestamp.text = [self getDate];
+    
     NSArray *results = [self loadCoreData];
     if(results.count > 0){
-        for(Entity *entity in results){
-            _m_text.text = entity.target;
+        for(Pokemon *pokemon in results){
+            NSLog(@"%lu pokemons you have right now!", (unsigned long)results.count);
+            NSLog(@"Pokemon Name = %@", pokemon.pokename);
+            NSLog(@"Location = %@", pokemon.location);
+            NSLog(@"Time Stamp = %@", pokemon.timestamp);
+            NSLog(@"Comments = %@", pokemon.comment);
         }
     }
-
 }
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -47,7 +52,10 @@
 - (IBAction)Save:(id)sender {
     
     // Get a pointer to the text
-    NSString* text = _m_text.text;
+    NSString* pokename = _textPokename.text;
+    NSString* location = _textLocation.text;
+    NSDate* timestamp = [NSDate date];
+    NSString* comments = _textComment.text;
     
     // Save it to the .sqlite DB
     
@@ -56,14 +64,19 @@
     NSError *error;
     
     // 2. Create a new object of type Entity and fill it with data
-    Entity* entity =[NSEntityDescription
-                     insertNewObjectForEntityForName:@"Entity" inManagedObjectContext:context];
+    Pokemon* pokemon =[NSEntityDescription
+                       insertNewObjectForEntityForName:@"Pokemon" inManagedObjectContext:context];
     
-    [entity setValue:text forKeyPath:@"target"];
+    [pokemon setValue:pokename forKeyPath:@"pokename"];
+    [pokemon setValue:location forKeyPath:@"location"];
+    [pokemon setValue:timestamp forKeyPath:@"timestamp"];
+    [pokemon setValue:comments forKeyPath:@"comment"];
     
     // 3. Send the object to the local database
     if(![context save:&error]){
         NSLog(@"Save Failed! %@", [error localizedDescription]);
+    }else{
+        NSLog(@"Pokemon %@ Saved!", pokename);
     }
 }
 
@@ -76,7 +89,7 @@
     
     // 2. fetch data from core data
     NSFetchRequest *fetchrequest = [[NSFetchRequest alloc]init];
-    [fetchrequest setEntity:[NSEntityDescription entityForName:@"Entity" inManagedObjectContext:context]];
+    [fetchrequest setEntity:[NSEntityDescription entityForName:@"Pokemon" inManagedObjectContext:context]];
     
     NSArray *results = [context executeFetchRequest:fetchrequest error:&error];
     if(error){
@@ -158,5 +171,20 @@
 
 // END CORE DATA //
 
+-(void) setUITextViewStyle{
+    UIColor *borderColor = [UIColor colorWithRed:204.0/255.0 green:204.0/255.0 blue:204.0/255.0 alpha:1.0];
+    
+    _textComment.layer.borderColor = borderColor.CGColor;
+    _textComment.layer.borderWidth = 1.0;
+    _textComment.layer.cornerRadius = 5.0;
+}
+
+-(NSString *) getDate{
+    NSDateFormatter *format =[[NSDateFormatter alloc]init];
+    [format setDateFormat:@"MMMM dd, yyyy HH:mm:ss"];
+    NSDate *now = [NSDate date];
+    NSString *nsstr = [format stringFromDate:now];
+    return nsstr;
+}
 
 @end

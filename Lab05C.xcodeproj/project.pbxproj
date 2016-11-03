@@ -14,8 +14,8 @@
 		6B6D1ED71DB91C7C00CF2A8C /* Lab05C.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6B6D1ED51DB91C7C00CF2A8C /* Lab05C.xcdatamodeld */; };
 		6B6D1ED91DB91C7C00CF2A8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B6D1ED81DB91C7C00CF2A8C /* Assets.xcassets */; };
 		6B6D1EDC1DB91C7C00CF2A8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B6D1EDA1DB91C7C00CF2A8C /* LaunchScreen.storyboard */; };
-		6B6D1EE71DB9451100CF2A8C /* Entity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B6D1EE41DB9451100CF2A8C /* Entity+CoreDataClass.m */; };
-		6B6D1EE81DB9451100CF2A8C /* Entity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B6D1EE61DB9451100CF2A8C /* Entity+CoreDataProperties.m */; };
+		B3995B691DCB9EB7004D6837 /* Pokemon+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = B3995B661DCB9EB7004D6837 /* Pokemon+CoreDataClass.m */; };
+		B3995B6A1DCB9EB7004D6837 /* Pokemon+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B3995B681DCB9EB7004D6837 /* Pokemon+CoreDataProperties.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,10 +30,10 @@
 		6B6D1ED81DB91C7C00CF2A8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B6D1EDB1DB91C7C00CF2A8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B6D1EDD1DB91C7C00CF2A8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6B6D1EE31DB9451100CF2A8C /* Entity+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Entity+CoreDataClass.h"; path = "Lab05C/Entity+CoreDataClass.h"; sourceTree = "<group>"; };
-		6B6D1EE41DB9451100CF2A8C /* Entity+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Entity+CoreDataClass.m"; path = "Lab05C/Entity+CoreDataClass.m"; sourceTree = "<group>"; };
-		6B6D1EE51DB9451100CF2A8C /* Entity+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Entity+CoreDataProperties.h"; path = "Lab05C/Entity+CoreDataProperties.h"; sourceTree = "<group>"; };
-		6B6D1EE61DB9451100CF2A8C /* Entity+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Entity+CoreDataProperties.m"; path = "Lab05C/Entity+CoreDataProperties.m"; sourceTree = "<group>"; };
+		B3995B651DCB9EB7004D6837 /* Pokemon+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Pokemon+CoreDataClass.h"; path = "Lab05C/Pokemon+CoreDataClass.h"; sourceTree = "<group>"; };
+		B3995B661DCB9EB7004D6837 /* Pokemon+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Pokemon+CoreDataClass.m"; path = "Lab05C/Pokemon+CoreDataClass.m"; sourceTree = "<group>"; };
+		B3995B671DCB9EB7004D6837 /* Pokemon+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Pokemon+CoreDataProperties.h"; path = "Lab05C/Pokemon+CoreDataProperties.h"; sourceTree = "<group>"; };
+		B3995B681DCB9EB7004D6837 /* Pokemon+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Pokemon+CoreDataProperties.m"; path = "Lab05C/Pokemon+CoreDataProperties.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,10 +50,10 @@
 		6B6D1EBD1DB91C7C00CF2A8C = {
 			isa = PBXGroup;
 			children = (
-				6B6D1EE31DB9451100CF2A8C /* Entity+CoreDataClass.h */,
-				6B6D1EE41DB9451100CF2A8C /* Entity+CoreDataClass.m */,
-				6B6D1EE51DB9451100CF2A8C /* Entity+CoreDataProperties.h */,
-				6B6D1EE61DB9451100CF2A8C /* Entity+CoreDataProperties.m */,
+				B3995B651DCB9EB7004D6837 /* Pokemon+CoreDataClass.h */,
+				B3995B661DCB9EB7004D6837 /* Pokemon+CoreDataClass.m */,
+				B3995B671DCB9EB7004D6837 /* Pokemon+CoreDataProperties.h */,
+				B3995B681DCB9EB7004D6837 /* Pokemon+CoreDataProperties.m */,
 				6B6D1EC81DB91C7C00CF2A8C /* Lab05C */,
 				6B6D1EC71DB91C7C00CF2A8C /* Products */,
 			);
@@ -165,10 +165,10 @@
 			files = (
 				6B6D1ED11DB91C7C00CF2A8C /* ViewController.m in Sources */,
 				6B6D1ECE1DB91C7C00CF2A8C /* AppDelegate.m in Sources */,
-				6B6D1EE81DB9451100CF2A8C /* Entity+CoreDataProperties.m in Sources */,
+				B3995B691DCB9EB7004D6837 /* Pokemon+CoreDataClass.m in Sources */,
 				6B6D1ED71DB91C7C00CF2A8C /* Lab05C.xcdatamodeld in Sources */,
-				6B6D1EE71DB9451100CF2A8C /* Entity+CoreDataClass.m in Sources */,
 				6B6D1ECB1DB91C7C00CF2A8C /* main.m in Sources */,
+				B3995B6A1DCB9EB7004D6837 /* Pokemon+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

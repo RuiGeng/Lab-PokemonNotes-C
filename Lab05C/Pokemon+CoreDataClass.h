@@ -1,8 +1,8 @@
 //
-//  Entity+CoreDataClass.h
+//  Pokemon+CoreDataClass.h
 //  Lab05C
 //
-//  Created by Rui Geng on 2016-10-20.
+//  Created by Rui on 2016-11-03.
 //  Copyright © 2016 Rui Geng. All rights reserved.
 //
 
@@ -11,10 +11,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Entity : NSManagedObject
+@interface Pokemon : NSManagedObject
 
 @end
 
 NS_ASSUME_NONNULL_END
 
-#import "Entity+CoreDataProperties.h"
+#import "Pokemon+CoreDataProperties.h"
